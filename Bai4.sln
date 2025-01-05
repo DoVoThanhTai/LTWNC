@@ -1,22 +1,56 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bai4", "Bai4.csproj", "{6BF1EF86-98FD-4499-A4A4-E5AD3FE623D9}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6BF1EF86-98FD-4499-A4A4-E5AD3FE623D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6BF1EF86-98FD-4499-A4A4-E5AD3FE623D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6BF1EF86-98FD-4499-A4A4-E5AD3FE623D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6BF1EF86-98FD-4499-A4A4-E5AD3FE623D9}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Text;
+
+class GuessNumberGame
+{
+    static void Main(string[] args)
+    {
+        // Tạo số ngẫu nhiên từ 1 đến 100
+        Random random = new Random();
+        int targetNumber = random.Next(1, 101); // Số ngẫu nhiên từ 1 đến 100
+        int attempts = 7; // Số lần đoán tối đa
+        bool isGuessed = false;
+
+        Console.OutputEncoding = Encoding.UTF8;
+        Console.WriteLine("Chào mừng bạn đến với trò chơi đoán số!");
+        Console.WriteLine("Tôi đã chọn một số từ 1 đến 100. Bạn có 7 lần đoán. Hãy bắt đầu!");
+
+        // Bắt đầu vòng lặp đoán số
+        for (int i = 1; i <= attempts; i++)
+        {
+            Console.Write($"Lần đoán thứ {i}. Nhập số của bạn: ");
+            int userGuess;
+
+            // Kiểm tra đầu vào hợp lệ
+            while (!int.TryParse(Console.ReadLine(), out userGuess) || userGuess < 1 || userGuess > 100)
+            {
+                Console.Write("Vui lòng nhập một số hợp lệ từ 1 đến 100: ");
+            }
+
+            // So sánh số đoán với số trúng thưởng
+            if (userGuess == targetNumber)
+            {
+                Console.WriteLine($"Chúc mừng! Bạn đã đoán đúng số {targetNumber} trong {i} lần đoán.");
+                isGuessed = true;
+                break;
+            }
+            else if (userGuess < targetNumber)
+            {
+                Console.WriteLine("Số bạn đoán nhỏ hơn số trúng thưởng. Hãy thử lại!");
+            }
+            else
+            {
+                Console.WriteLine("Số bạn đoán lớn hơn số trúng thưởng. Hãy thử lại!");
+            }
+        }
+
+        // Kết thúc trò chơi
+        if (!isGuessed)
+        {
+            Console.WriteLine($"Rất tiếc, bạn đã hết lượt đoán. Số trúng thưởng là {targetNumber}.");
+        }
+
+        Console.WriteLine("Cảm ơn bạn đã chơi trò chơi!");
+        Console.ReadLine();
+    }
+}
