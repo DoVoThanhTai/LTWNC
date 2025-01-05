@@ -1,22 +1,69 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bai2", "Bai2.csproj", "{F349FB37-4422-48AE-8271-C9B8F2F14664}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F349FB37-4422-48AE-8271-C9B8F2F14664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F349FB37-4422-48AE-8271-C9B8F2F14664}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F349FB37-4422-48AE-8271-C9B8F2F14664}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F349FB37-4422-48AE-8271-C9B8F2F14664}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Text;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.OutputEncoding = Encoding.UTF8;
+
+        Console.WriteLine("Giải phương trình bậc hai: ax^2 + bx + c = 0");
+
+        // Nhập hệ số a, b, c
+        Console.Write("Nhập a: ");
+        double a = double.Parse(Console.ReadLine());
+
+        Console.Write("Nhập b: ");
+        double b = double.Parse(Console.ReadLine());
+
+        Console.Write("Nhập c: ");
+        double c = double.Parse(Console.ReadLine());
+
+        // Xử lý trường hợp đặc biệt
+        if (a == 0)
+        {
+            if (b == 0)
+            {
+                if (c == 0)
+                {
+                    Console.WriteLine("Phương trình có vô số nghiệm.");
+                }
+                else
+                {
+                    Console.WriteLine("Phương trình vô nghiệm.");
+                }
+            }
+            else
+            {
+                // Phương trình trở thành b*x + c = 0
+                double x = -c / b;
+                Console.WriteLine($"Phương trình có một nghiệm: x = {x}");
+            }
+        }
+        else
+        {
+            // Tính delta
+            double delta = b * b - 4 * a * c;
+
+            // Xét giá trị của delta
+            if (delta < 0)
+            {
+                Console.WriteLine("Phương trình vô nghiệm (delta < 0).");
+            }
+            else if (delta == 0)
+            {
+                double x = -b / (2 * a);
+                Console.WriteLine($"Phương trình có nghiệm kép: x1 = x2 = {x}");
+            }
+            else
+            {
+                double x1 = (-b + Math.Sqrt(delta)) / (2 * a);
+                double x2 = (-b - Math.Sqrt(delta)) / (2 * a);
+                Console.WriteLine($"Phương trình có hai nghiệm phân biệt:");
+                Console.WriteLine($"x1 = {x1}");
+                Console.WriteLine($"x2 = {x2}");
+            }
+        }
+        Console.ReadLine();
+    }
+}
