@@ -1,22 +1,68 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bai1", "bai1.csproj", "{7D80C351-FFFD-42DA-BF7C-697F29E025ED}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7D80C351-FFFD-42DA-BF7C-697F29E025ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D80C351-FFFD-42DA-BF7C-697F29E025ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D80C351-FFFD-42DA-BF7C-697F29E025ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D80C351-FFFD-42DA-BF7C-697F29E025ED}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Text;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        try
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+
+            // Nhập số nguyên a
+            Console.Write("Nhập số nguyên a: ");
+            int a = int.Parse(Console.ReadLine());
+
+            // Nhập số nguyên b
+            Console.Write("Nhập số nguyên b: ");
+            int b = int.Parse(Console.ReadLine());
+
+            // Nhập toán tử
+            Console.WriteLine("1. Phép cộng");
+            Console.WriteLine("2. Phép trừ");
+            Console.WriteLine("3. Phép nhân");
+            Console.WriteLine("4. Phép chia");
+            Console.Write("Nhập phép toán cần tính: ");
+            char operation = Console.ReadLine()[0];
+
+            // Tính toán và in kết quả
+            switch (operation)
+            {
+                case '1':
+                    Console.WriteLine($"Kết quả: {a} + {b} = {a + b}");
+                    break;
+                case '2':
+                    Console.WriteLine($"Kết quả: {a} - {b} = {a - b}");
+                    break;
+                case '3':
+                    Console.WriteLine($"Kết quả: {a} * {b} = {a * b}");
+                    break;
+                case '4':
+                    if (b == 0)
+                    {
+                        Console.WriteLine("Lỗi: Không thể chia cho 0.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Kết quả: {a} / {b} = {a / (double)b}");
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Phép tính không hợp lệ. Vui lòng nhập lại.");
+                    break;
+            }
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Lỗi: Vui lòng nhập số nguyên hợp lệ.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Đã xảy ra lỗi: {ex.Message}");
+        }
+        Console.ReadLine();
+    }
+}
+
