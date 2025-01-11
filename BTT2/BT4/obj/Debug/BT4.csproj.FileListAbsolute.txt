@@ -1,0 +1,7 @@
+D:\HK6\LTWeb\BBT2\BT4\bin\Debug\BT4.exe.config
+D:\HK6\LTWeb\BBT2\BT4\bin\Debug\BT4.exe
+D:\HK6\LTWeb\BBT2\BT4\bin\Debug\BT4.pdb
+D:\HK6\LTWeb\BBT2\BT4\obj\Debug\BT4.csproj.AssemblyReference.cache
+D:\HK6\LTWeb\BBT2\BT4\obj\Debug\BT4.csproj.CoreCompileInputs.cache
+D:\HK6\LTWeb\BBT2\BT4\obj\Debug\BT4.exe
+D:\HK6\LTWeb\BBT2\BT4\obj\Debug\BT4.pdb

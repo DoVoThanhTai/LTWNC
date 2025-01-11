@@ -1,0 +1,7 @@
+D:\HK6\LTWeb\BBT2\VDXS\obj\Debug\VDXS.csproj.AssemblyReference.cache
+D:\HK6\LTWeb\BBT2\VDXS\obj\Debug\VDXS.csproj.CoreCompileInputs.cache
+D:\HK6\LTWeb\BBT2\VDXS\bin\Debug\VDXS.exe.config
+D:\HK6\LTWeb\BBT2\VDXS\bin\Debug\VDXS.exe
+D:\HK6\LTWeb\BBT2\VDXS\bin\Debug\VDXS.pdb
+D:\HK6\LTWeb\BBT2\VDXS\obj\Debug\VDXS.exe
+D:\HK6\LTWeb\BBT2\VDXS\obj\Debug\VDXS.pdb
